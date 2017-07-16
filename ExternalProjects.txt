@@ -5,12 +5,18 @@ ExternalProject_Add(
 
   GIT_REPOSITORY "https://github.com/ybainier/Hypodermic.git"
   GIT_TAG "v2.4"
+
+  INSTALL_COMMAND cmake -E echo "Skipping install step."
   
   SOURCE_DIR "${CMAKE_SOURCE_DIR}/externals/hypodermic"
 )
-
-set(Hypodermic_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/externals/hypodermic/Hypodermic")
+set(CMAKE_INSTALL_PREFIX_ORG "${CMAKE_INSTALL_PREFIX}")
+set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/externals/hypodermic")
+set(Hypodermic_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/externals/hypodermic")
 include_directories(${Hypodermic_INCLUDE_DIRS})
+set(CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX_ORG}")
+
+
 
 
 #

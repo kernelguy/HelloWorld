@@ -7,9 +7,16 @@
 //============================================================================
 
 #include <iostream>
+#include "ioc/IOC.h"
+#include "contracts/ITranslations.h"
+
 using namespace std;
 
 int main() {
-	cout << "Hello\nWorld!" << endl; // prints Hello\nWorld!
+	IOC ioc = IOC::Instance();
+
+	auto translations = ioc->resolve< Contracts::ITranslations  >();
+
+	cout << translations->GetText("Hello\nWorld!") << endl; // prints Hello\nWorld!
 	return 0;
 }
