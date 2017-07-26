@@ -6,11 +6,14 @@
  */
 
 #include "Translations.h"
+#include <libintl.h>
+#include <locale.h>
 
 Translations::Translations()
 {
-	// TODO Auto-generated constructor stub
-
+	setlocale (LC_ALL, "");
+	bindtextdomain ("hello", "");
+	textdomain ("hello");
 }
 
 Translations::~Translations()
@@ -20,5 +23,5 @@ Translations::~Translations()
 
 const char* Translations::GetText(const char *apText)
 {
-	return apText;
+	return gettext(apText);
 }
