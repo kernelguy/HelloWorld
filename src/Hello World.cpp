@@ -9,6 +9,7 @@
 #include <iostream>
 #include "ioc/IOC.h"
 #include "contracts/ITranslations.h"
+#include "AppConfig.h"
 
 using namespace std;
 

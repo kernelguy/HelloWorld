@@ -14,8 +14,10 @@ function usage {
 }
 
 if [ "ninja" == "$BUILD_TYPE" ]; then
+	mkdir -p "$DIR/_out/Release"
 	cd "$DIR/_out/Release"
 	cmake -GNinja -D CMAKE_BUILD_TYPE=Release ../..	
+	mkdir -p "$DIR/_out/Debug"
 	cd "$DIR/_out/Debug"
 	cmake -GNinja -D CMAKE_BUILD_TYPE=Debug ../..
 	exit 0	
