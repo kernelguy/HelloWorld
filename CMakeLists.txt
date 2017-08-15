@@ -37,9 +37,10 @@ file(GLOB_RECURSE TEST_SOURCES "test/*.cpp")
 
 add_executable("hello-world" ${SOURCES})
 add_dependencies("hello-world" Hypodermic Nanolog)
+target_link_libraries ("hello-world" ${EXTRA_LIBS})
 
 list(REMOVE_ITEM SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/Hello World.cpp")
 add_executable("hello-world-test" ${TEST_SOURCES} ${SOURCES})
 add_dependencies("hello-world-test" Hypodermic Nanolog Doctest)
+target_link_libraries ("hello-world-test" ${EXTRA_LIBS})
 
-#target_link_libraries (hello-world Nanolog)
