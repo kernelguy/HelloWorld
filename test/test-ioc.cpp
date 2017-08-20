@@ -7,16 +7,18 @@
 
 
 #include <doctest.h>
-#include <ioc/IOC.h>
+#include <contracts/IIOC.h>
 #include "contracts/ITranslations.h"
+#include "Application.h"
 
 TEST_CASE("Testing the IOC class") {
-	IOC ioc = IOC::Instance();
+	Application app;
+	Contracts::IIOC& ioc = app.Ioc();
 
 	SUBCASE("Testing that IOC is singleton") {
-		IOC ioc2 = IOC::Instance();
+		Contracts::IIOC& ioc2 = app.Ioc();
 
-		CHECK(ioc == ioc2);
+		CHECK(&ioc == &ioc2);
 	}
 	SUBCASE("IOC translations") {
 		auto t = ioc->resolve< Contracts::ITranslations  >();

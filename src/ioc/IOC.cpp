@@ -12,8 +12,8 @@
 #include <contracts/ITranslations.h>
 
 #include <dispatcher/MessageDispatcher.h>
-#include <logging/RLog.h>
 #include <translations/Translations.h>
+#include <logging/Logger.h>
 
 
 IOC::IOC()
@@ -22,7 +22,7 @@ IOC::IOC()
 
     builder.registerType< MessageDispatcher >().as< Contracts::IMessageDispatcher >();
 
-    builder.registerType< RLog >().as< Contracts::ILogging >();
+    builder.registerType< Logger >().as< Contracts::ILogging >();
 
     builder.registerType< Translations >().as< Contracts::ITranslations >();
 

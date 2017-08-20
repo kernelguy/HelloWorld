@@ -18,18 +18,6 @@ public:
 		return instance;
 	}
 
-	Singleton()
-	{
-		p = this;
-	}
-
-	bool operator== (const T &other) const
-	{
-		return (this->p == other.p);
-	}
-
-private:
-	Singleton<T> *p;
 };
 
 #endif /* SRC_HELPERS_SINGLETON_H_ */
